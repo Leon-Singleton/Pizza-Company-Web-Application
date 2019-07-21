@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Sign Off Pizza</title>
+    <link href="../style/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link href="../style/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../style/bootstrap/font_awesome/bootstrap-social.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/pizza.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../style/bootstrap/javascript/bootstrap.js"></script>
+    <script src="../javascript/scrollMechanism.js"></script>
+    <script src="../style/javascript/javascript.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+
+<body>
+<nav>
+        <div class="topnav" id="myTopnav">
+          
+            <% if @login then %>
+             <% if $adminid == 1 then %>
+                    <a href="Admin">Home</a>
+                    <a href="Marketing">Marketing Management</a>
+                    <a href="Orders">Order Management</a>
+                    <a href="CreateStaff">Add Staff</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==2 %>
+                <a href="Orders">Home</a>
+                <a href="Orders">Order Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==3 %>
+                <a href="Marketing">Home</a>
+                <a href="MarketingCampaign">Marketing Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid == 0 %>
+                    <a href="home">Home</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyDetails">My Details</a>
+                    <a href="contactus">Contact Us</a>
+              <% end %>
+            <a href="logout">Log Out</a>
+            <% end %>
+           <% if !@login then %>
+                <a href="home">Home</a>
+                <a href="Menu">Menu</a>      
+                <a href="contactus">Contact Us</a>
+                <a href="/#login">Log In</a>
+          <% end %>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </nav>
+<main>
+	<div>
+		<h1>The Origin Story</h1>
+		<p>Some weeks ago, an idea formed into the head of our founders. "Hey, how about we make a 
+        pizza place, but all people can order JUST through Twitter?"<br>
+        "Say no more" said the other accidental founder.<br>
+        This is how SignOff (as in signing off your assignment) came to being.</p><br>
+
+		<blockquote>
+			
+			<h1>You want pizza?</h1>
+			<p>We deliver within a two-mile radius from our brand new (not really) HQ, but you can always
+            come to us and collect your order.</p>
+		</blockquote><br>
+		<p>Make an account, join Twitter, make sure you live close to us and we've got you covered with all the pizza you can afford.</p>
+	</div>
+	
+	<form class="form-horizontal" role="form" method="post" >
+		<h1>Share your thoughts</h1>
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="message" class="col-sm-2 control-label">Message</label>
+			<div class="col-sm-10">
+				<textarea class="form-control" rows="4" name="message"></textarea>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-10 col-sm-offset-2">
+				<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-10 col-sm-offset-2">
+			</div>
+		</div>
+
+	</form>
+    </main>  
+        
+</body>
+
+</html>

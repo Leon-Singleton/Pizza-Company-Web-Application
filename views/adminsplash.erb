@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Sign Off Pizza</title>
+    <link href="../style/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link href="../style/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../style/bootstrap/font_awesome/bootstrap-social.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/pizza.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../style/bootstrap/javascript/bootstrap.js"></script>
+    <script src="../javascript/scrollMechanism.js"></script>
+    <script src="../style/javascript/javascript.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+
+<body>
+<nav>
+        <div class="topnav" id="myTopnav">
+          
+            <% if @login then %>
+             <% if $adminid == 1 then %>
+                    <a href="Admin">Home</a>
+                    <a href="Marketing">Marketing Management</a>
+                    <a href="Orders">Order Management</a>
+                    <a href="CreateStaff">Add Staff</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==2 %>
+                <a href="Orders">Home</a>
+                <a href="Orders">Order Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==3 %>
+                <a href="Marketing">Home</a>
+                <a href="MarketingCampaign">Marketing Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid == 0 %>
+                    <a href="home">Home</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyDetails">My Details</a>
+                    <a href="contactus">Contact Us</a>
+              <% end %>
+            <a href="logout">Log Out</a>
+            <% end %>
+           <% if !@login then %>
+                <a href="home">Home</a>
+                <a href="Menu">Menu</a>      
+                <a href="contactus">Contact Us</a>
+                <a href="/#login">Log In</a>
+          <% end %>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </nav>
+    
+    <h1>Sign Off Pizza</h1>
+    <br>
+    <h1>Admin Page</h1>
+  
+    <h2>Statistics </h2>
+    <table class="table">
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Users</th>
+            <th>Followers</th>
+          </tr>
+          <% @allUsers.each do |user| %>
+            <tr>
+                <td><%= user[0] %></td>
+                <!-- Format the date display of statistics -->
+                <td><%= user[1] %> - 
+                    <% if user[2] < 10 %>0<%= user[2] %>
+                    <% else %>
+                   <%= user[2] %> 
+                    <%end %>- <%= user[3] %></td>
+                <td><%= user[4] %></td>
+                <td><%= user[5] %></td>
+            </tr>
+          <% end %>
+    </table>
+    <br>
+    
+    
+    <div id='forms'>
+        <!-- The Statistics Graph -->
+        <div >
+            <form>
+                <img src="<%= @chart %>" alt="Graph">
+            </form>
+        
+        </div>
+        
+          <!-- Updating the page according to requirement -->
+        <div>
+            <form method="get" action="/Admin">
+                <input type="hidden" name="statsid" value="1">
+                <input class='form-control' type='submit' value='Today'>
+            </form>
+        </div>
+        
+        <div>
+            <form method="get" action="/Admin">
+                <input type="hidden" name="statsid" value="2">
+                <input class='form-control' type='submit' value='This Month'>
+            </form> 
+        </div>
+        
+        <div>   
+            <form method="get" action="/Admin">
+                <input type="hidden" name="statsid" value="3">             
+                <input class='form-control' type='submit' value='This Year'>
+            </form>    
+        </div>
+        
+    <div>
+        <form method="get" action="/Admin">
+            <input type="hidden" name="statsid" value="0">              
+            <input class='form-control' type='submit' value='All Time'>
+
+        </form>
+    </div>
+    </div>
+    <br>
+    <div class="twitter">
+      <a class="twitter-timeline"  
+         href="https://twitter.com/search?q=to%3ASignOffPizza" 
+         data-widget-id="849554812375093249">Tweets about to:SignOffPizza</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>      
+</body>
+
+</html>

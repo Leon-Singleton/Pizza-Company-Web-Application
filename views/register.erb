@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Sign Off Pizza</title>
+    <link href="../style/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link href="../style/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../style/bootstrap/font_awesome/bootstrap-social.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/pizza.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../style/bootstrap/javascript/bootstrap.js"></script>
+    <script src="../javascript/scrollMechanism.js"></script>
+    <script src="../style/javascript/javascript.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+
+<body>
+<nav>
+        <div class="topnav" id="myTopnav">
+          
+            <% if @login then %>
+             <% if $adminid == 1 then %>
+                    <a href="Admin">Home</a>
+                    <a href="Marketing">Marketing Management</a>
+                    <a href="Orders">Order Management</a>
+                    <a href="CreateStaff">Add Staff</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==2 %>
+                <a href="Orders">Home</a>
+                <a href="Orders">Order Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==3 %>
+                <a href="Marketing">Home</a>
+                <a href="MarketingCampaign">Marketing Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid == 0 %>
+                    <a href="home">Home</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyDetails">My Details</a>
+                    <a href="contactus">Contact Us</a>
+              <% end %>
+            <a href="logout">Log Out</a>
+            <% end %>
+           <% if !@login then %>
+                <a href="home">Home</a>
+                <a href="Menu">Menu</a>      
+                <a href="contactus">Contact Us</a>
+                <a href="/#login">Log In</a>
+          <% end %>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </nav>
+    
+    <h1>Sign Off Pizza</h1>
+    <br>
+
+    <form class="form-horizontal form-panel" role="form" method="post" >
+
+        <% if @submitted && !@username_ok %>
+          <p style="color:red">Please enter a different username</p>
+        <% end %>
+
+        <% if @submitted && !@password_ok %>
+         <p style="color:red">Please enter a password made of letters and numbers</p>
+        <% end %> 
+
+        <% if @submitted && !@twitter_ok %>
+         <p style="color:red">Please enter a valid twitter account</p>
+        <% end %> 
+
+        <% if @submitted && !@housename_ok %>
+         <p style="color:red">Please enter a house name made of letters and numbers</p>
+        <% end %> 
+
+        <% if @submitted && !@housenumber_ok %>
+         <p style="color:red">Please enter a house number made up of numbers</p>
+        <% end %> 
+
+        <% if @submitted && !@street_ok %>
+         <p style="color:red">Please enter a street name made up of letters</p>
+        <% end %> 
+
+        <% if @submitted && !@postcode_ok %>
+         <p style="color:red">Please enter a postcode made of letters and numbers in a valid format</p>
+        <% end %> 
+
+		<h1>Register</h1>
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">Username</label>
+			<div class="col-sm-10">
+				<input type="text" name="username" id="username" tabindex="1" class="form-control" 
+                       placeholder="Choose your username" value="<%=h @username if @submitted %>">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="Password" class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-10">
+                <input type="password" name="password" id="password" tabindex="2" class="form-control" 
+                       placeholder="Choose a password" value="<%=h @password if @submitted %>">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="twitter" class="col-sm-2 control-label">Twitter</label>
+			<div class="col-sm-10">
+                <input type="text" name="twitter" id="twitter" tabindex="2" class="form-control" 
+                       placeholder="Your Twitter Account with @" value="<%=h @twitter if @submitted %>">
+			</div>
+		</div>
+    
+        <div class="form-group">
+			<label for="housename" class="col-sm-2 control-label">House name</label>
+			<div class="col-sm-10">
+                <input type="text" name="housename" id="housename" tabindex="2" class="form-control" 
+                       placeholder="Your House Name" value="<%=h @housename if @submitted %>">
+			</div>
+		</div>
+    
+        <div class="form-group">
+			<label for="housenumber" class="col-sm-2 control-label">House Number</label>
+			<div class="col-sm-10">
+                <input type="text" name="housenumber" id="housenumber" tabindex="2" class="form-control" 
+                       placeholder="Your House Number" value="<%=h @housenumber if @submitted %>">
+			</div>
+		</div>
+    
+        <div class="form-group">
+			<label for="street" class="col-sm-2 control-label">Street</label>
+			<div class="col-sm-10">
+                <input type="text" name="street" id="street" tabindex="2" class="form-control" 
+                       placeholder="Your Street name" value="<%=h @street if @submitted %>">
+			</div>
+		</div>
+    
+        <div class="form-group">
+			<label for="postcode" class="col-sm-2 control-label">Postcode</label>
+			<div class="col-sm-10">
+                <input type="text" name="postcode" id="postcode" tabindex="2" class="form-control" 
+                       placeholder="Your Postcode" value="<%=h @postcode if @submitted %>">
+			</div>
+		</div>
+    
+		<div class="form-group">
+			<div class="col-sm-10 col-sm-offset-9">
+				<input id="submit" name="submit" type="submit" value="Register" class="btn btn-primary">
+			</div>
+      <div class="corner col-sm-10">Already a member? 
+				<a href="/#login" class="to_login"> Login </a> 
+		  </div>
+		</div>   
+		
+	</form>
+</body>
+
+</html>

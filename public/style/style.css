@@ -1,0 +1,296 @@
+/*---GENERAL TAGS-------------------*/
+/*----------------------------------*/
+
+html, body, section {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  color: white;
+}
+
+html {
+  font: 0.9em 'Open Sans', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/pizzaBackground2.jpg) no-repeat fixed center;
+  color: white;
+}
+
+section {
+  position: relative;
+  display: inline-block;
+}
+
+main {
+  margin: 0 auto;
+  padding: 5%;
+  max-width: 700px;
+}
+
+h1 {
+  font: 2.8em 'Pacifico', cursive;
+  text-align: center;
+  color: white;
+}
+
+
+p {
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: blue;
+}
+
+a:visited {
+  color: white;
+}
+
+.form-control {
+    width: 95%;
+    margin: auto;
+}
+
+.form-group a{
+  color: blue;
+}
+
+.form-group a:visited{
+  color: blue;
+}
+
+
+.centre p {
+  text-align: center;
+}
+
+/*---NAVIGATION--------------------*/
+/*---------------------------------*/
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+  display: none;
+}
+    
+.topnav a.icon {
+  float: right;
+  display: block;
+}
+    
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+.topnav.responsive {
+  position: relative;
+}
+    
+.topnav.responsive a.icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.topnav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+    
+}
+/*---INDEX PAGE--------------------*/
+/*---------------------------------*/
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+}
+
+#login h1 {
+  position: relative;
+  top: 1.2em;
+}
+
+#logo {
+  width: 300px;
+}
+
+/*---LOG IN--------------------*/
+/*-----------------------------*/
+
+form {
+  margin: 0 auto;
+  max-width: 400px;
+  width: auto;
+  margin-top: 3em;
+}
+
+.corner {
+  color: grey;
+  background: white;
+  width: auto;
+  padding: 0.5em 2% 0.5em 2%;
+  float: right;
+  border-radius: 10px;
+}
+
+.to_register {
+  color: blue;
+}
+
+.pizza {
+  max-width: 400px;
+  width: auto;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5%;
+  margin: 2%;
+  display: inline;
+  float: left;
+  text-shadow: 1px 1px 2px black;
+}
+
+.offer{
+  max-width: 400px;
+  width: auto;
+  padding: 0.5%;
+  margin: 2%;
+ 
+  float: left;
+  text-shadow: 1px 1px 2px black;
+}
+.price {
+  float: right;
+}
+
+.table th{
+  width: 10%;
+}
+
+.twitter{
+	text-align: center;
+    
+}
+
+.twitter-timeline{
+    display:inline-block;
+    margin: 0 5%;
+}
+
+#new{
+    width: 400px;
+    height: 200px;
+  
+}
+
+.btn-twitter{
+    width: 100%;
+    text-align:center;
+}
+
+.left{
+    float: left;
+    margin: 0.5em 10%;
+}
+.left .btn{
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+   
+}
+/*---MEDIA QUERYS--------------------*/
+/*-----------------------------------*/
+
+@media screen and (min-width: 750px) {
+    
+#login h1 {
+  position: static;
+}
+
+#logo {
+  width: 500px;
+}
+    
+} 
+
+
+/*-------------------------------------------
+ *------ GENERAL STYLE -----------
+ * ---------------------------------------------*/
+
+
+
+.plus{
+    font-size:2em;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 50%;
+    width: 200px;
+    height: 600px;
+    position:relative; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+    text-align:center;
+    vertical-align: middle;
+}
+
+.btn-twitter{
+    text-align: center;
+}
+.buttons{
+    width: 400px;
+    height: 100px;
+    position:relative; 
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+    display: inline-block;
+}
+#forms{
+    display: inline;
+}

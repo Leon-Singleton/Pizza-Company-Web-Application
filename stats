@@ -1,0 +1,10 @@
+CREATE TABLE stats(
+    id INTEGER NOT NULL PRIMARY KEY,
+    Date TEXT NOT NULL,
+    UniqueUsers INTEGER,
+    TwitterFollowers INTEGER
+);
+
+INSERT INTO stats VALUES(
+    1, "2017-04-11", 4, 1
+    );

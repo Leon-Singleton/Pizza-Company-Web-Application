@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Sign Off Pizza</title>
+    <link href="../style/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link href="../style/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../style/bootstrap/font_awesome/bootstrap-social.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/pizza.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../style/bootstrap/javascript/bootstrap.js"></script>
+    <script src="../javascript/scrollMechanism.js"></script>
+    <script src="../style/javascript/javascript.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+  
+<body>
+<nav>
+        <div class="topnav" id="myTopnav">
+          
+            <% if @login then %>
+             <% if $adminid == 1 then %>
+                    <a href="Admin">Home</a>
+                    <a href="Marketing">Marketing Management</a>
+                    <a href="Orders">Order Management</a>
+                    <a href="CreateStaff">Add Staff</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==2 %>
+                <a href="Orders">Home</a>
+                <a href="Orders">Order Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid==3 %>
+                <a href="Marketing">Home</a>
+                <a href="MarketingCampaign">Marketing Management</a>
+                <a href="MyAccount">My Account</a>
+             <% end %>
+            <% if $adminid == 0 %>
+                    <a href="home">Home</a>
+                    <a href="Menu">Menu</a>
+                    <a href="MyDetails">My Details</a>
+                    <a href="contactus">Contact Us</a>
+              <% end %>
+            <a href="logout">Log Out</a>
+            <% end %>
+           <% if !@login then %>
+                <a href="home">Home</a>
+                <a href="Menu">Menu</a>      
+                <a href="contactus">Contact Us</a>
+                <a href="#login">Log In</a>
+          <% end %>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </nav>
+
+    <section class="home">
+        <a href="home">
+        <img id ="logo" src="../images/logo.png" alt="Logo">
+        </a>
+    </section>
+
+    <section id="login">
+        
+        <h1>Log In</h1>      
+            <% unless @error.nil? %>
+            <p><strong><%= @error %></strong></p>
+            <% end %>
+        
+            <form class="form-horizontal form-panel" role="form" method="post" action="/login" >
+                
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<%=h @username if @submitted %>" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="<%= h @password if @submitted %>"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <input id="submit" name="submit" type="submit" value="Log In" class="btn btn-primary"/>
+                    <div class="corner">Not a member yet? 
+                        <a href="/register" class="to_register"> Register</a> 
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+    
+</html>
