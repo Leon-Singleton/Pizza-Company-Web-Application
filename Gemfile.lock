@@ -83,7 +83,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     public_suffix (2.0.5)
-    rack (1.6.5)
+    rack (1.6.12)
     rack-flash (0.1.2)
       rack
     rack-protection (1.5.3)
