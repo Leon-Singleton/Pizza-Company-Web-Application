@@ -43,7 +43,7 @@ GEM
     fusioncharts-rails (0.0.2)
     gchart (1.0.0)
       hoe (>= 2.3.2)
-    geocoder (1.4.3)
+    geocoder (1.6.1)
     gherkin (4.0.0)
     git (1.3.0)
     googlecharts (1.6.12)
